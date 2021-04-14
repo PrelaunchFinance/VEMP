@@ -117,7 +117,8 @@ contract PricelessPositionManager is FeePayer {
     );
     event EmergencyShutdown(address indexed caller, uint256 originalExpirationTimestamp, uint256 shutdownTimestamp);
     event VariableExpiration(address indexed caller, uint256 originalExpirationTimestamp, uint256 shutdownTimestamp);
-
+    event EmergencyUpdateDAOAddress(address indexed previousAddress, address indexed newAddress, uint256 updateTimestamp);
+    
     /****************************************
      *               MODIFIERS              *
      ****************************************/
@@ -620,6 +621,18 @@ contract PricelessPositionManager is FeePayer {
         _requestOraclePriceExpiration(expirationTimestamp);
 
         emit ContractExpired(msg.sender);
+    }
+
+    /**
+     * @notice Update DAO address under emergency circumstances
+     * @dev Only the governor or authorized DAO can call this function.
+     * The new DAOAddress will be authorized to expire the contract, and the old address will be deauthorized.
+     */
+    function emergencyUpdateDAOAddress(address DAOAddress) {
+        require(msg.sender == _getFinancialContractsAdminAddress() || msg.sender == externalVariableExpirationDAOAddress, 'Caller must be the authorized DAO or the UMA governor');
+        updateTimestamp = getCurrentTime();
+        EmergencyUpdateDAOAddress(externalVariableExpirationDAOAddress, DAOAddress, updateTimestamp)
+        externalVariableExpirationDAOAddress = DAOAddress;
     }
 
     /**
