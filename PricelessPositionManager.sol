@@ -624,7 +624,7 @@ contract PricelessPositionManager is FeePayer {
 
     /**
      * @notice Variable contract settlement under pre-defined circumstances.
-     * @dev Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`.
+     * @dev Only the governor or authorized DAO can call this function.
      * Upon variable shutdown, the contract settlement time is set to the shutdown time. This enables withdrawal
      * to occur via the standard `settleExpired` function.
      */
