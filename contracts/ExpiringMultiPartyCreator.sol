@@ -2,14 +2,14 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
-import "../../common/interfaces/ExpandedIERC20.sol";
-import "../../common/interfaces/IERC20Standard.sol";
-import "../../oracle/implementation/ContractCreator.sol";
-import "../../common/implementation/Testable.sol";
-import "../../common/implementation/AddressWhitelist.sol";
-import "../../common/implementation/Lockable.sol";
-import "../common/TokenFactory.sol";
-import "../common/SyntheticToken.sol";
+import "@uma/core/contracts/common/interfaces/ExpandedIERC20.sol";
+import "@uma/core/contracts/common/interfaces/IERC20Standard.sol";
+import "@uma/core/contracts/oracle/implementation/ContractCreator.sol";
+import "@uma/core/contracts/common/implementation/Testable.sol";
+import "@uma/core/contracts/common/implementation/AddressWhitelist.sol";
+import "@uma/core/contracts/common/implementation/Lockable.sol";
+import "@uma/core/contracts/financial-templates/common/TokenFactory.sol";
+import "@uma/core/contracts/financial-templates/common/SyntheticToken.sol";
 import "./ExpiringMultiPartyLib.sol";
 
 /**

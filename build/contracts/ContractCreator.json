@@ -1,0 +1,2395 @@
+{
+  "contractName": "ContractCreator",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_finderAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_finderAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Base contract for all financial contract creators\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"@uma/core/contracts/oracle/implementation/ContractCreator.sol\":\"ContractCreator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x0de74dfa6b37943c1b834cbd8fb7a8d052e5ff80c7adb33692102dd6cd2985e9\",\"urls\":[\"bzz-raw://9d2d827fcf4a838f5821732c0acd6a40d21c2a5a2cfe2563feec91465f47bb60\",\"dweb:/ipfs/Qmex3wMKf5Sghbfvr288RUg1kP2uAyTMf11w83WbMbpQQc\"]},\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0x9a8c691b81a4a48adbbd5b010faa56a168c189e711495c16347d93b60b805f82\",\"urls\":[\"bzz-raw://d951d626ed7bfe1a2d7a6bd4af315ff8691929bd567594d6ab53599fe9e17e4e\",\"dweb:/ipfs/QmYkGeowpa6Bjr9aaDirWdDo7hSfShzzZhanKC4nTfRhLj\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x04d34b3cd5677bea25f8dfceb6dec0eaa071d4d4b789a43f13fe0c415ba4c296\",\"urls\":[\"bzz-raw://e7e8b526a6839e5ba14f0d23a830387fec47f7043ce01d42c9f285b709a9d080\",\"dweb:/ipfs/QmXmhhFmX5gcAvVzNiDPAGA35iHMPNaYtQkACswRHBVTNw\"]},\"@uma/core/contracts/common/implementation/AddressWhitelist.sol\":{\"keccak256\":\"0xbc3b2ea7d29bc19af75b594ecee1b10d3c993aa309002776d7e5435e5e3f1af1\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://f34d1b942fcbfe116770238eae53c4878db59f078845086c8aa5c11da594c682\",\"dweb:/ipfs/QmTJ7AyXMT7PBfgz3fYEXefztBA7CFTxTW52s7PpmSC4uw\"]},\"@uma/core/contracts/common/implementation/Lockable.sol\":{\"keccak256\":\"0xe766fe78267c8f589f9510a6e258b69287ed455c18d6b3f393d8e9d96f2d71cf\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://2e78bb200ecd01e863bfd57583941561f09993f902b83aa5d362387746578209\",\"dweb:/ipfs/QmNX2pLdH4p4HtJTKqSY4LwenRUPwJKa22ZSF2yc3cTMq4\"]},\"@uma/core/contracts/common/implementation/MultiRole.sol\":{\"keccak256\":\"0xc35f4e028196f04a47b2456ed7efd825be3406688a314d75916f57680eae1795\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://29edb6ac3a5e5146fe262f77431d55571379cf0265925060d15f27b1b927cdd6\",\"dweb:/ipfs/QmUg31ey8b53pXdUpUBUrHx46nC3p2XChwmhLXw1h9ooyi\"]},\"@uma/core/contracts/oracle/implementation/Constants.sol\":{\"keccak256\":\"0xdbb681274d3d1582bdeea2d5e09739d0f30fd37bafdfa37ac17b01dd05e1b12c\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://e07d0801e26cc117bb89113125faf54c730137a18b3dd3e7237a0422972c203b\",\"dweb:/ipfs/QmQntQCNR1hYPqUq3cKasTPV7BsCC8Xm3gJ4YfZKpZsNGh\"]},\"@uma/core/contracts/oracle/implementation/ContractCreator.sol\":{\"keccak256\":\"0x5d4427af133d46e1a790dca92d539a511c626eb88215a94f99a4487ef28bea78\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://1612eae160369d4da5d2a5b2b064c1dfb5ab645d718ed8b5fb7aef18ae968a99\",\"dweb:/ipfs/QmZ47KMuH8Tgb6j75CJ5a2RNS6KMBqh2An1L5euWJegpwG\"]},\"@uma/core/contracts/oracle/implementation/Registry.sol\":{\"keccak256\":\"0x27c18535d0ca2b2a016a2d835b113b485456572cd48fcc1dd3482d928e5972c7\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://1988f6138ffe2a01024f7a5c720de0654f5b58923fe6d42d8033456ea925c7b9\",\"dweb:/ipfs/QmQtdxu4ooF6YzVPbBDsnyBwdH5UmJDPwuamTYt3siBf1z\"]},\"@uma/core/contracts/oracle/interfaces/FinderInterface.sol\":{\"keccak256\":\"0x22ad0329b3a6e55e30fb8391aa69310966cdbc06047ea7d031a2d14450a54d2f\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://5341487810effd6dddd567cd0bf8cd67e369ac69740bd1113ce197fa42bf1a90\",\"dweb:/ipfs/QmYoXoAFTkUdxmoU6AAdHFMpKQtgGi9xaUrQrBR1h7Q7ZR\"]},\"@uma/core/contracts/oracle/interfaces/RegistryInterface.sol\":{\"keccak256\":\"0x5b0305042d80f7d810e586efe8f15737c4916959c28467a505f57d0d24190cc5\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://2f6d1f83eab9a46696555d6420a328a8205aa3b8b26de553c61aec1388535215\",\"dweb:/ipfs/QmY8vEVmx1zizCiGTmetHFhgdHgjGS669sErUQktyXzyuj\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: AGPL-3.0-only\npragma solidity ^0.6.0;\n\nimport \"../interfaces/FinderInterface.sol\";\nimport \"../../common/implementation/AddressWhitelist.sol\";\nimport \"./Registry.sol\";\nimport \"./Constants.sol\";\n\n/**\n * @title Base contract for all financial contract creators\n */\nabstract contract ContractCreator {\n    address internal finderAddress;\n\n    constructor(address _finderAddress) public {\n        finderAddress = _finderAddress;\n    }\n\n    function _requireWhitelistedCollateral(address collateralAddress) internal view {\n        FinderInterface finder = FinderInterface(finderAddress);\n        AddressWhitelist collateralWhitelist =\n            AddressWhitelist(finder.getImplementationAddress(OracleInterfaces.CollateralWhitelist));\n        require(collateralWhitelist.isOnWhitelist(collateralAddress), \"Collateral not whitelisted\");\n    }\n\n    function _registerContract(address[] memory parties, address contractToRegister) internal {\n        FinderInterface finder = FinderInterface(finderAddress);\n        Registry registry = Registry(finder.getImplementationAddress(OracleInterfaces.Registry));\n        registry.registerContract(parties, contractToRegister);\n    }\n}\n",
+  "sourcePath": "@uma/core/contracts/oracle/implementation/ContractCreator.sol",
+  "ast": {
+    "absolutePath": "@uma/core/contracts/oracle/implementation/ContractCreator.sol",
+    "exportedSymbols": {
+      "ContractCreator": [
+        9209
+      ]
+    },
+    "id": 9210,
+    "license": "AGPL-3.0-only",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9129,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "42:23:27"
+      },
+      {
+        "absolutePath": "@uma/core/contracts/oracle/interfaces/FinderInterface.sol",
+        "file": "../interfaces/FinderInterface.sol",
+        "id": 9130,
+        "nodeType": "ImportDirective",
+        "scope": 9210,
+        "sourceUnit": 9706,
+        "src": "67:43:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "file": "../../common/implementation/AddressWhitelist.sol",
+        "id": 9131,
+        "nodeType": "ImportDirective",
+        "scope": 9210,
+        "sourceUnit": 5605,
+        "src": "111:58:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@uma/core/contracts/oracle/implementation/Registry.sol",
+        "file": "./Registry.sol",
+        "id": 9132,
+        "nodeType": "ImportDirective",
+        "scope": 9210,
+        "sourceUnit": 9666,
+        "src": "170:24:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@uma/core/contracts/oracle/implementation/Constants.sol",
+        "file": "./Constants.sol",
+        "id": 9133,
+        "nodeType": "ImportDirective",
+        "scope": 9210,
+        "sourceUnit": 9128,
+        "src": "195:25:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 9134,
+          "nodeType": "StructuredDocumentation",
+          "src": "222:67:27",
+          "text": " @title Base contract for all financial contract creators"
+        },
+        "fullyImplemented": true,
+        "id": 9209,
+        "linearizedBaseContracts": [
+          9209
+        ],
+        "name": "ContractCreator",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 9136,
+            "mutability": "mutable",
+            "name": "finderAddress",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 9209,
+            "src": "330:30:27",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 9135,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "330:7:27",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 9145,
+              "nodeType": "Block",
+              "src": "410:47:27",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9143,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 9141,
+                      "name": "finderAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9136,
+                      "src": "420:13:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9142,
+                      "name": "_finderAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9138,
+                      "src": "436:14:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "420:30:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 9144,
+                  "nodeType": "ExpressionStatement",
+                  "src": "420:30:27"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 9146,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9139,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9138,
+                  "mutability": "mutable",
+                  "name": "_finderAddress",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9146,
+                  "src": "379:22:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 9137,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "379:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "378:24:27"
+            },
+            "returnParameters": {
+              "id": 9140,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "410:0:27"
+            },
+            "scope": 9209,
+            "src": "367:90:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9175,
+              "nodeType": "Block",
+              "src": "543:321:27",
+              "statements": [
+                {
+                  "assignments": [
+                    9152
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 9152,
+                      "mutability": "mutable",
+                      "name": "finder",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 9175,
+                      "src": "553:22:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                        "typeString": "contract FinderInterface"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 9151,
+                        "name": "FinderInterface",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 9705,
+                        "src": "553:15:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                          "typeString": "contract FinderInterface"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 9156,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9154,
+                        "name": "finderAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9136,
+                        "src": "594:13:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 9153,
+                      "name": "FinderInterface",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9705,
+                      "src": "578:15:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_FinderInterface_$9705_$",
+                        "typeString": "type(contract FinderInterface)"
+                      }
+                    },
+                    "id": 9155,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "578:30:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                      "typeString": "contract FinderInterface"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "553:55:27"
+                },
+                {
+                  "assignments": [
+                    9158
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 9158,
+                      "mutability": "mutable",
+                      "name": "collateralWhitelist",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 9175,
+                      "src": "618:36:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_AddressWhitelist_$5604",
+                        "typeString": "contract AddressWhitelist"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 9157,
+                        "name": "AddressWhitelist",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5604,
+                        "src": "618:16:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_AddressWhitelist_$5604",
+                          "typeString": "contract AddressWhitelist"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 9166,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 9162,
+                              "name": "OracleInterfaces",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 9127,
+                              "src": "718:16:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_contract$_OracleInterfaces_$9127_$",
+                                "typeString": "type(library OracleInterfaces)"
+                              }
+                            },
+                            "id": 9163,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "CollateralWhitelist",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 9123,
+                            "src": "718:36:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 9160,
+                            "name": "finder",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9152,
+                            "src": "686:6:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                              "typeString": "contract FinderInterface"
+                            }
+                          },
+                          "id": 9161,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getImplementationAddress",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 9704,
+                          "src": "686:31:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                            "typeString": "function (bytes32) view external returns (address)"
+                          }
+                        },
+                        "id": 9164,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "686:69:27",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 9159,
+                      "name": "AddressWhitelist",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5604,
+                      "src": "669:16:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_AddressWhitelist_$5604_$",
+                        "typeString": "type(contract AddressWhitelist)"
+                      }
+                    },
+                    "id": 9165,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "669:87:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_AddressWhitelist_$5604",
+                      "typeString": "contract AddressWhitelist"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "618:138:27"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 9170,
+                            "name": "collateralAddress",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9148,
+                            "src": "808:17:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 9168,
+                            "name": "collateralWhitelist",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9158,
+                            "src": "774:19:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_AddressWhitelist_$5604",
+                              "typeString": "contract AddressWhitelist"
+                            }
+                          },
+                          "id": 9169,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "isOnWhitelist",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5515,
+                          "src": "774:33:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view external returns (bool)"
+                          }
+                        },
+                        "id": 9171,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "774:52:27",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "436f6c6c61746572616c206e6f742077686974656c6973746564",
+                        "id": 9172,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "828:28:27",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_26e6f417d1f73722f572432ca9a5c0b83d9a2eb7cf869d7fefd614a3ef3000ce",
+                          "typeString": "literal_string \"Collateral not whitelisted\""
+                        },
+                        "value": "Collateral not whitelisted"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_26e6f417d1f73722f572432ca9a5c0b83d9a2eb7cf869d7fefd614a3ef3000ce",
+                          "typeString": "literal_string \"Collateral not whitelisted\""
+                        }
+                      ],
+                      "id": 9167,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "766:7:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 9173,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "766:91:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9174,
+                  "nodeType": "ExpressionStatement",
+                  "src": "766:91:27"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 9176,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_requireWhitelistedCollateral",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9149,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9148,
+                  "mutability": "mutable",
+                  "name": "collateralAddress",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9176,
+                  "src": "502:25:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 9147,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "502:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "501:27:27"
+            },
+            "returnParameters": {
+              "id": 9150,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "543:0:27"
+            },
+            "scope": 9209,
+            "src": "463:401:27",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 9207,
+              "nodeType": "Block",
+              "src": "960:234:27",
+              "statements": [
+                {
+                  "assignments": [
+                    9185
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 9185,
+                      "mutability": "mutable",
+                      "name": "finder",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 9207,
+                      "src": "970:22:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                        "typeString": "contract FinderInterface"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 9184,
+                        "name": "FinderInterface",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 9705,
+                        "src": "970:15:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                          "typeString": "contract FinderInterface"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 9189,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9187,
+                        "name": "finderAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9136,
+                        "src": "1011:13:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 9186,
+                      "name": "FinderInterface",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9705,
+                      "src": "995:15:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_FinderInterface_$9705_$",
+                        "typeString": "type(contract FinderInterface)"
+                      }
+                    },
+                    "id": 9188,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "995:30:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                      "typeString": "contract FinderInterface"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "970:55:27"
+                },
+                {
+                  "assignments": [
+                    9191
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 9191,
+                      "mutability": "mutable",
+                      "name": "registry",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 9207,
+                      "src": "1035:17:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Registry_$9665",
+                        "typeString": "contract Registry"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 9190,
+                        "name": "Registry",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 9665,
+                        "src": "1035:8:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Registry_$9665",
+                          "typeString": "contract Registry"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 9199,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 9195,
+                              "name": "OracleInterfaces",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 9127,
+                              "src": "1096:16:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_contract$_OracleInterfaces_$9127_$",
+                                "typeString": "type(library OracleInterfaces)"
+                              }
+                            },
+                            "id": 9196,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "Registry",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 9120,
+                            "src": "1096:25:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 9193,
+                            "name": "finder",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9185,
+                            "src": "1064:6:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_FinderInterface_$9705",
+                              "typeString": "contract FinderInterface"
+                            }
+                          },
+                          "id": 9194,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getImplementationAddress",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 9704,
+                          "src": "1064:31:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                            "typeString": "function (bytes32) view external returns (address)"
+                          }
+                        },
+                        "id": 9197,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1064:58:27",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 9192,
+                      "name": "Registry",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9665,
+                      "src": "1055:8:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_Registry_$9665_$",
+                        "typeString": "type(contract Registry)"
+                      }
+                    },
+                    "id": 9198,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1055:68:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Registry_$9665",
+                      "typeString": "contract Registry"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1035:88:27"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9203,
+                        "name": "parties",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9179,
+                        "src": "1159:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9204,
+                        "name": "contractToRegister",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9181,
+                        "src": "1168:18:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 9200,
+                        "name": "registry",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9191,
+                        "src": "1133:8:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Registry_$9665",
+                          "typeString": "contract Registry"
+                        }
+                      },
+                      "id": 9202,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "registerContract",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 9404,
+                      "src": "1133:25:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_array$_t_address_$dyn_memory_ptr_$_t_address_$returns$__$",
+                        "typeString": "function (address[] memory,address) external"
+                      }
+                    },
+                    "id": 9205,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1133:54:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9206,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1133:54:27"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 9208,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_registerContract",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9182,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9179,
+                  "mutability": "mutable",
+                  "name": "parties",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9208,
+                  "src": "897:24:27",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 9177,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "897:7:27",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 9178,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "897:9:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9181,
+                  "mutability": "mutable",
+                  "name": "contractToRegister",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9208,
+                  "src": "923:26:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 9180,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "923:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "896:54:27"
+            },
+            "returnParameters": {
+              "id": 9183,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "960:0:27"
+            },
+            "scope": 9209,
+            "src": "870:324:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 9210,
+        "src": "290:906:27"
+      }
+    ],
+    "src": "42:1155:27"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "@uma/core/contracts/oracle/implementation/ContractCreator.sol",
+      "exportedSymbols": {
+        "ContractCreator": [
+          9209
+        ]
+      },
+      "license": "AGPL-3.0-only"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 9129,
+        "name": "PragmaDirective",
+        "src": "42:23:27"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 9706,
+          "absolutePath": "@uma/core/contracts/oracle/interfaces/FinderInterface.sol",
+          "file": "../interfaces/FinderInterface.sol",
+          "scope": 9210,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 9130,
+        "name": "ImportDirective",
+        "src": "67:43:27"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 5605,
+          "absolutePath": "@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+          "file": "../../common/implementation/AddressWhitelist.sol",
+          "scope": 9210,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 9131,
+        "name": "ImportDirective",
+        "src": "111:58:27"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 9666,
+          "absolutePath": "@uma/core/contracts/oracle/implementation/Registry.sol",
+          "file": "./Registry.sol",
+          "scope": 9210,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 9132,
+        "name": "ImportDirective",
+        "src": "170:24:27"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 9128,
+          "absolutePath": "@uma/core/contracts/oracle/implementation/Constants.sol",
+          "file": "./Constants.sol",
+          "scope": 9210,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 9133,
+        "name": "ImportDirective",
+        "src": "195:25:27"
+      },
+      {
+        "attributes": {
+          "abstract": true,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            9209
+          ],
+          "name": "ContractCreator",
+          "scope": 9210
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": " @title Base contract for all financial contract creators"
+            },
+            "id": 9134,
+            "name": "StructuredDocumentation",
+            "src": "222:67:27"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "finderAddress",
+              "overrides": null,
+              "scope": 9209,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "stateMutability": "nonpayable",
+                  "type": "address"
+                },
+                "id": 9135,
+                "name": "ElementaryTypeName",
+                "src": "330:7:27"
+              }
+            ],
+            "id": 9136,
+            "name": "VariableDeclaration",
+            "src": "330:30:27"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 9209,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_finderAddress",
+                      "overrides": null,
+                      "scope": 9146,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 9137,
+                        "name": "ElementaryTypeName",
+                        "src": "379:7:27"
+                      }
+                    ],
+                    "id": 9138,
+                    "name": "VariableDeclaration",
+                    "src": "379:22:27"
+                  }
+                ],
+                "id": 9139,
+                "name": "ParameterList",
+                "src": "378:24:27"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 9140,
+                "name": "ParameterList",
+                "src": "410:0:27"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9136,
+                              "type": "address",
+                              "value": "finderAddress"
+                            },
+                            "id": 9141,
+                            "name": "Identifier",
+                            "src": "420:13:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9138,
+                              "type": "address",
+                              "value": "_finderAddress"
+                            },
+                            "id": 9142,
+                            "name": "Identifier",
+                            "src": "436:14:27"
+                          }
+                        ],
+                        "id": 9143,
+                        "name": "Assignment",
+                        "src": "420:30:27"
+                      }
+                    ],
+                    "id": 9144,
+                    "name": "ExpressionStatement",
+                    "src": "420:30:27"
+                  }
+                ],
+                "id": 9145,
+                "name": "Block",
+                "src": "410:47:27"
+              }
+            ],
+            "id": 9146,
+            "name": "FunctionDefinition",
+            "src": "367:90:27"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_requireWhitelistedCollateral",
+              "overrides": null,
+              "scope": 9209,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "collateralAddress",
+                      "overrides": null,
+                      "scope": 9176,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 9147,
+                        "name": "ElementaryTypeName",
+                        "src": "502:7:27"
+                      }
+                    ],
+                    "id": 9148,
+                    "name": "VariableDeclaration",
+                    "src": "502:25:27"
+                  }
+                ],
+                "id": 9149,
+                "name": "ParameterList",
+                "src": "501:27:27"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 9150,
+                "name": "ParameterList",
+                "src": "543:0:27"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        9152
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "finder",
+                          "overrides": null,
+                          "scope": 9175,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "contract FinderInterface",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "FinderInterface",
+                              "referencedDeclaration": 9705,
+                              "type": "contract FinderInterface"
+                            },
+                            "id": 9151,
+                            "name": "UserDefinedTypeName",
+                            "src": "553:15:27"
+                          }
+                        ],
+                        "id": 9152,
+                        "name": "VariableDeclaration",
+                        "src": "553:22:27"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "contract FinderInterface",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9705,
+                              "type": "type(contract FinderInterface)",
+                              "value": "FinderInterface"
+                            },
+                            "id": 9153,
+                            "name": "Identifier",
+                            "src": "578:15:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9136,
+                              "type": "address",
+                              "value": "finderAddress"
+                            },
+                            "id": 9154,
+                            "name": "Identifier",
+                            "src": "594:13:27"
+                          }
+                        ],
+                        "id": 9155,
+                        "name": "FunctionCall",
+                        "src": "578:30:27"
+                      }
+                    ],
+                    "id": 9156,
+                    "name": "VariableDeclarationStatement",
+                    "src": "553:55:27"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        9158
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "collateralWhitelist",
+                          "overrides": null,
+                          "scope": 9175,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "contract AddressWhitelist",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "AddressWhitelist",
+                              "referencedDeclaration": 5604,
+                              "type": "contract AddressWhitelist"
+                            },
+                            "id": 9157,
+                            "name": "UserDefinedTypeName",
+                            "src": "618:16:27"
+                          }
+                        ],
+                        "id": 9158,
+                        "name": "VariableDeclaration",
+                        "src": "618:36:27"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "contract AddressWhitelist",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 5604,
+                              "type": "type(contract AddressWhitelist)",
+                              "value": "AddressWhitelist"
+                            },
+                            "id": 9159,
+                            "name": "Identifier",
+                            "src": "669:16:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "getImplementationAddress",
+                                  "referencedDeclaration": 9704,
+                                  "type": "function (bytes32) view external returns (address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 9152,
+                                      "type": "contract FinderInterface",
+                                      "value": "finder"
+                                    },
+                                    "id": 9160,
+                                    "name": "Identifier",
+                                    "src": "686:6:27"
+                                  }
+                                ],
+                                "id": 9161,
+                                "name": "MemberAccess",
+                                "src": "686:31:27"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "CollateralWhitelist",
+                                  "referencedDeclaration": 9123,
+                                  "type": "bytes32"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 9127,
+                                      "type": "type(library OracleInterfaces)",
+                                      "value": "OracleInterfaces"
+                                    },
+                                    "id": 9162,
+                                    "name": "Identifier",
+                                    "src": "718:16:27"
+                                  }
+                                ],
+                                "id": 9163,
+                                "name": "MemberAccess",
+                                "src": "718:36:27"
+                              }
+                            ],
+                            "id": 9164,
+                            "name": "FunctionCall",
+                            "src": "686:69:27"
+                          }
+                        ],
+                        "id": 9165,
+                        "name": "FunctionCall",
+                        "src": "669:87:27"
+                      }
+                    ],
+                    "id": 9166,
+                    "name": "VariableDeclarationStatement",
+                    "src": "618:138:27"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_26e6f417d1f73722f572432ca9a5c0b83d9a2eb7cf869d7fefd614a3ef3000ce",
+                                  "typeString": "literal_string \"Collateral not whitelisted\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 9167,
+                            "name": "Identifier",
+                            "src": "766:7:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "bool",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "isOnWhitelist",
+                                  "referencedDeclaration": 5515,
+                                  "type": "function (address) view external returns (bool)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 9158,
+                                      "type": "contract AddressWhitelist",
+                                      "value": "collateralWhitelist"
+                                    },
+                                    "id": 9168,
+                                    "name": "Identifier",
+                                    "src": "774:19:27"
+                                  }
+                                ],
+                                "id": 9169,
+                                "name": "MemberAccess",
+                                "src": "774:33:27"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 9148,
+                                  "type": "address",
+                                  "value": "collateralAddress"
+                                },
+                                "id": 9170,
+                                "name": "Identifier",
+                                "src": "808:17:27"
+                              }
+                            ],
+                            "id": 9171,
+                            "name": "FunctionCall",
+                            "src": "774:52:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "436f6c6c61746572616c206e6f742077686974656c6973746564",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Collateral not whitelisted\"",
+                              "value": "Collateral not whitelisted"
+                            },
+                            "id": 9172,
+                            "name": "Literal",
+                            "src": "828:28:27"
+                          }
+                        ],
+                        "id": 9173,
+                        "name": "FunctionCall",
+                        "src": "766:91:27"
+                      }
+                    ],
+                    "id": 9174,
+                    "name": "ExpressionStatement",
+                    "src": "766:91:27"
+                  }
+                ],
+                "id": 9175,
+                "name": "Block",
+                "src": "543:321:27"
+              }
+            ],
+            "id": 9176,
+            "name": "FunctionDefinition",
+            "src": "463:401:27"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_registerContract",
+              "overrides": null,
+              "scope": 9209,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "parties",
+                      "overrides": null,
+                      "scope": 9208,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "address[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "address[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "address",
+                              "stateMutability": "nonpayable",
+                              "type": "address"
+                            },
+                            "id": 9177,
+                            "name": "ElementaryTypeName",
+                            "src": "897:7:27"
+                          }
+                        ],
+                        "id": 9178,
+                        "name": "ArrayTypeName",
+                        "src": "897:9:27"
+                      }
+                    ],
+                    "id": 9179,
+                    "name": "VariableDeclaration",
+                    "src": "897:24:27"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "contractToRegister",
+                      "overrides": null,
+                      "scope": 9208,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 9180,
+                        "name": "ElementaryTypeName",
+                        "src": "923:7:27"
+                      }
+                    ],
+                    "id": 9181,
+                    "name": "VariableDeclaration",
+                    "src": "923:26:27"
+                  }
+                ],
+                "id": 9182,
+                "name": "ParameterList",
+                "src": "896:54:27"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 9183,
+                "name": "ParameterList",
+                "src": "960:0:27"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        9185
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "finder",
+                          "overrides": null,
+                          "scope": 9207,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "contract FinderInterface",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "FinderInterface",
+                              "referencedDeclaration": 9705,
+                              "type": "contract FinderInterface"
+                            },
+                            "id": 9184,
+                            "name": "UserDefinedTypeName",
+                            "src": "970:15:27"
+                          }
+                        ],
+                        "id": 9185,
+                        "name": "VariableDeclaration",
+                        "src": "970:22:27"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "contract FinderInterface",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9705,
+                              "type": "type(contract FinderInterface)",
+                              "value": "FinderInterface"
+                            },
+                            "id": 9186,
+                            "name": "Identifier",
+                            "src": "995:15:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9136,
+                              "type": "address",
+                              "value": "finderAddress"
+                            },
+                            "id": 9187,
+                            "name": "Identifier",
+                            "src": "1011:13:27"
+                          }
+                        ],
+                        "id": 9188,
+                        "name": "FunctionCall",
+                        "src": "995:30:27"
+                      }
+                    ],
+                    "id": 9189,
+                    "name": "VariableDeclarationStatement",
+                    "src": "970:55:27"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        9191
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "registry",
+                          "overrides": null,
+                          "scope": 9207,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "contract Registry",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Registry",
+                              "referencedDeclaration": 9665,
+                              "type": "contract Registry"
+                            },
+                            "id": 9190,
+                            "name": "UserDefinedTypeName",
+                            "src": "1035:8:27"
+                          }
+                        ],
+                        "id": 9191,
+                        "name": "VariableDeclaration",
+                        "src": "1035:17:27"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "contract Registry",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9665,
+                              "type": "type(contract Registry)",
+                              "value": "Registry"
+                            },
+                            "id": 9192,
+                            "name": "Identifier",
+                            "src": "1055:8:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "getImplementationAddress",
+                                  "referencedDeclaration": 9704,
+                                  "type": "function (bytes32) view external returns (address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 9185,
+                                      "type": "contract FinderInterface",
+                                      "value": "finder"
+                                    },
+                                    "id": 9193,
+                                    "name": "Identifier",
+                                    "src": "1064:6:27"
+                                  }
+                                ],
+                                "id": 9194,
+                                "name": "MemberAccess",
+                                "src": "1064:31:27"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "Registry",
+                                  "referencedDeclaration": 9120,
+                                  "type": "bytes32"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 9127,
+                                      "type": "type(library OracleInterfaces)",
+                                      "value": "OracleInterfaces"
+                                    },
+                                    "id": 9195,
+                                    "name": "Identifier",
+                                    "src": "1096:16:27"
+                                  }
+                                ],
+                                "id": 9196,
+                                "name": "MemberAccess",
+                                "src": "1096:25:27"
+                              }
+                            ],
+                            "id": 9197,
+                            "name": "FunctionCall",
+                            "src": "1064:58:27"
+                          }
+                        ],
+                        "id": 9198,
+                        "name": "FunctionCall",
+                        "src": "1055:68:27"
+                      }
+                    ],
+                    "id": 9199,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1035:88:27"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                                  "typeString": "address[] memory"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "registerContract",
+                              "referencedDeclaration": 9404,
+                              "type": "function (address[] memory,address) external"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 9191,
+                                  "type": "contract Registry",
+                                  "value": "registry"
+                                },
+                                "id": 9200,
+                                "name": "Identifier",
+                                "src": "1133:8:27"
+                              }
+                            ],
+                            "id": 9202,
+                            "name": "MemberAccess",
+                            "src": "1133:25:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9179,
+                              "type": "address[] memory",
+                              "value": "parties"
+                            },
+                            "id": 9203,
+                            "name": "Identifier",
+                            "src": "1159:7:27"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9181,
+                              "type": "address",
+                              "value": "contractToRegister"
+                            },
+                            "id": 9204,
+                            "name": "Identifier",
+                            "src": "1168:18:27"
+                          }
+                        ],
+                        "id": 9205,
+                        "name": "FunctionCall",
+                        "src": "1133:54:27"
+                      }
+                    ],
+                    "id": 9206,
+                    "name": "ExpressionStatement",
+                    "src": "1133:54:27"
+                  }
+                ],
+                "id": 9207,
+                "name": "Block",
+                "src": "960:234:27"
+              }
+            ],
+            "id": 9208,
+            "name": "FunctionDefinition",
+            "src": "870:324:27"
+          }
+        ],
+        "id": 9209,
+        "name": "ContractDefinition",
+        "src": "290:906:27"
+      }
+    ],
+    "id": 9210,
+    "name": "SourceUnit",
+    "src": "42:1155:27"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.0",
+  "updatedAt": "2021-04-26T02:01:05.169Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "title": "Base contract for all financial contract creators",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

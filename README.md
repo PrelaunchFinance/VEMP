@@ -1,1 +1,1 @@
-# VEMP
+# variable-expiring-multiparty

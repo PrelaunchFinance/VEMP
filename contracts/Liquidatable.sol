@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/utils/Address.sol";
 
 import "./PricelessPositionManager.sol";
 
-import "../../common/implementation/FixedPoint.sol";
+import "@uma/core/contracts/common/implementation/FixedPoint.sol";
 
 /**
  * @title Liquidatable
@@ -67,6 +67,7 @@ contract Liquidatable is PricelessPositionManager {
         address finderAddress;
         address timerAddress;
         address financialProductLibraryAddress;
+        address externalVariableExpirationDAOAddress;
         bytes32 priceFeedIdentifier;
         FixedPoint.Unsigned minSponsorTokens;
         // Params specifically for Liquidatable.
@@ -183,7 +184,8 @@ contract Liquidatable is PricelessPositionManager {
             params.priceFeedIdentifier,
             params.minSponsorTokens,
             params.timerAddress,
-            params.financialProductLibraryAddress
+            params.financialProductLibraryAddress,
+            params.externalVariableExpirationDAOAddress
         )
         nonReentrant()
     {

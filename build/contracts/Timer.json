@@ -1,0 +1,871 @@
+{
+  "contractName": "Timer",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "time",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCurrentTime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCurrentTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"getCurrentTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"setCurrentTime\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getCurrentTime()\":{\"returns\":{\"_0\":\"uint256 for the current Testable timestamp.\"}},\"setCurrentTime(uint256)\":{\"details\":\"Will revert if not running in test mode.\",\"params\":{\"time\":\"timestamp to set `currentTime` to.\"}}},\"title\":\"Universal store of current contract time for testing environments.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getCurrentTime()\":{\"notice\":\"Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode. Otherwise, it will return the block timestamp.\"},\"setCurrentTime(uint256)\":{\"notice\":\"Sets the current time.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"@uma/core/contracts/common/implementation/Timer.sol\":\"Timer\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@uma/core/contracts/common/implementation/Timer.sol\":{\"keccak256\":\"0x4ce613d5032aefb04a64fd623c216a6f68a1b903a4a7aa72721323dc988a6c90\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://6b557f3da4d90ec171cba84a2d85202c2327028a081552fe36440cdbbef6396d\",\"dweb:/ipfs/QmcLdrkekhH1VXN5jEuiqbkTzX7doz1KuVp6KQfCnyQ8C4\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b504260008190555060c7806100266000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806322f8e56614603757806329cb924d146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea2646970667358221220db77b437749f5ac009291ef205a3c910a739f06712b98a380e7b363c79e6a55864736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806322f8e56614603757806329cb924d146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea2646970667358221220db77b437749f5ac009291ef205a3c910a739f06712b98a380e7b363c79e6a55864736f6c634300060c0033",
+  "immutableReferences": {},
+  "sourceMap": "152:741:19:-:0;;;207:96;;;;;;;;;;252:3;238:11;:17;;;;152:741;;;;;;",
+  "deployedSourceMap": "152:741:19:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;470:82;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;800:91;;;:::i;:::-;;;;;;;;;;;;;;;;;;;470:82;541:4;527:11;:18;;;;470:82;:::o;800:91::-;847:7;873:11;;866:18;;800:91;:::o",
+  "source": "// SPDX-License-Identifier: AGPL-3.0-only\npragma solidity ^0.6.0;\n\n/**\n * @title Universal store of current contract time for testing environments.\n */\ncontract Timer {\n    uint256 private currentTime;\n\n    constructor() public {\n        currentTime = now; // solhint-disable-line not-rely-on-time\n    }\n\n    /**\n     * @notice Sets the current time.\n     * @dev Will revert if not running in test mode.\n     * @param time timestamp to set `currentTime` to.\n     */\n    function setCurrentTime(uint256 time) external {\n        currentTime = time;\n    }\n\n    /**\n     * @notice Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode.\n     * Otherwise, it will return the block timestamp.\n     * @return uint256 for the current Testable timestamp.\n     */\n    function getCurrentTime() public view returns (uint256) {\n        return currentTime;\n    }\n}\n",
+  "sourcePath": "@uma/core/contracts/common/implementation/Timer.sol",
+  "ast": {
+    "absolutePath": "@uma/core/contracts/common/implementation/Timer.sol",
+    "exportedSymbols": {
+      "Timer": [
+        8069
+      ]
+    },
+    "id": 8070,
+    "license": "AGPL-3.0-only",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8037,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "42:23:19"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 8038,
+          "nodeType": "StructuredDocumentation",
+          "src": "67:84:19",
+          "text": " @title Universal store of current contract time for testing environments."
+        },
+        "fullyImplemented": true,
+        "id": 8069,
+        "linearizedBaseContracts": [
+          8069
+        ],
+        "name": "Timer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 8040,
+            "mutability": "mutable",
+            "name": "currentTime",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 8069,
+            "src": "173:27:19",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 8039,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "173:7:19",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 8047,
+              "nodeType": "Block",
+              "src": "228:75:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8045,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 8043,
+                      "name": "currentTime",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8040,
+                      "src": "238:11:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 8044,
+                      "name": "now",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -17,
+                      "src": "252:3:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "238:17:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 8046,
+                  "nodeType": "ExpressionStatement",
+                  "src": "238:17:19"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8048,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 8041,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "218:2:19"
+            },
+            "returnParameters": {
+              "id": 8042,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "228:0:19"
+            },
+            "scope": 8069,
+            "src": "207:96:19",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8058,
+              "nodeType": "Block",
+              "src": "517:35:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8056,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 8054,
+                      "name": "currentTime",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8040,
+                      "src": "527:11:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 8055,
+                      "name": "time",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8051,
+                      "src": "541:4:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "527:18:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 8057,
+                  "nodeType": "ExpressionStatement",
+                  "src": "527:18:19"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 8049,
+              "nodeType": "StructuredDocumentation",
+              "src": "309:156:19",
+              "text": " @notice Sets the current time.\n @dev Will revert if not running in test mode.\n @param time timestamp to set `currentTime` to."
+            },
+            "functionSelector": "22f8e566",
+            "id": 8059,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setCurrentTime",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 8052,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8051,
+                  "mutability": "mutable",
+                  "name": "time",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 8059,
+                  "src": "494:12:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8050,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "494:7:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "493:14:19"
+            },
+            "returnParameters": {
+              "id": 8053,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "517:0:19"
+            },
+            "scope": 8069,
+            "src": "470:82:19",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 8067,
+              "nodeType": "Block",
+              "src": "856:35:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8065,
+                    "name": "currentTime",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 8040,
+                    "src": "873:11:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 8064,
+                  "id": 8066,
+                  "nodeType": "Return",
+                  "src": "866:18:19"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 8060,
+              "nodeType": "StructuredDocumentation",
+              "src": "558:237:19",
+              "text": " @notice Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode.\n Otherwise, it will return the block timestamp.\n @return uint256 for the current Testable timestamp."
+            },
+            "functionSelector": "29cb924d",
+            "id": 8068,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrentTime",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 8061,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "823:2:19"
+            },
+            "returnParameters": {
+              "id": 8064,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8063,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 8068,
+                  "src": "847:7:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8062,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "847:7:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "846:9:19"
+            },
+            "scope": 8069,
+            "src": "800:91:19",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8070,
+        "src": "152:741:19"
+      }
+    ],
+    "src": "42:852:19"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "@uma/core/contracts/common/implementation/Timer.sol",
+      "exportedSymbols": {
+        "Timer": [
+          8069
+        ]
+      },
+      "license": "AGPL-3.0-only"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 8037,
+        "name": "PragmaDirective",
+        "src": "42:23:19"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            8069
+          ],
+          "name": "Timer",
+          "scope": 8070
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": " @title Universal store of current contract time for testing environments."
+            },
+            "id": 8038,
+            "name": "StructuredDocumentation",
+            "src": "67:84:19"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "currentTime",
+              "overrides": null,
+              "scope": 8069,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 8039,
+                "name": "ElementaryTypeName",
+                "src": "173:7:19"
+              }
+            ],
+            "id": 8040,
+            "name": "VariableDeclaration",
+            "src": "173:27:19"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 8069,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 8041,
+                "name": "ParameterList",
+                "src": "218:2:19"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 8042,
+                "name": "ParameterList",
+                "src": "228:0:19"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 8040,
+                              "type": "uint256",
+                              "value": "currentTime"
+                            },
+                            "id": 8043,
+                            "name": "Identifier",
+                            "src": "238:11:19"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": -17,
+                              "type": "uint256",
+                              "value": "now"
+                            },
+                            "id": 8044,
+                            "name": "Identifier",
+                            "src": "252:3:19"
+                          }
+                        ],
+                        "id": 8045,
+                        "name": "Assignment",
+                        "src": "238:17:19"
+                      }
+                    ],
+                    "id": 8046,
+                    "name": "ExpressionStatement",
+                    "src": "238:17:19"
+                  }
+                ],
+                "id": 8047,
+                "name": "Block",
+                "src": "228:75:19"
+              }
+            ],
+            "id": 8048,
+            "name": "FunctionDefinition",
+            "src": "207:96:19"
+          },
+          {
+            "attributes": {
+              "functionSelector": "22f8e566",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setCurrentTime",
+              "overrides": null,
+              "scope": 8069,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice Sets the current time.\n @dev Will revert if not running in test mode.\n @param time timestamp to set `currentTime` to."
+                },
+                "id": 8049,
+                "name": "StructuredDocumentation",
+                "src": "309:156:19"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "time",
+                      "overrides": null,
+                      "scope": 8059,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 8050,
+                        "name": "ElementaryTypeName",
+                        "src": "494:7:19"
+                      }
+                    ],
+                    "id": 8051,
+                    "name": "VariableDeclaration",
+                    "src": "494:12:19"
+                  }
+                ],
+                "id": 8052,
+                "name": "ParameterList",
+                "src": "493:14:19"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 8053,
+                "name": "ParameterList",
+                "src": "517:0:19"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 8040,
+                              "type": "uint256",
+                              "value": "currentTime"
+                            },
+                            "id": 8054,
+                            "name": "Identifier",
+                            "src": "527:11:19"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 8051,
+                              "type": "uint256",
+                              "value": "time"
+                            },
+                            "id": 8055,
+                            "name": "Identifier",
+                            "src": "541:4:19"
+                          }
+                        ],
+                        "id": 8056,
+                        "name": "Assignment",
+                        "src": "527:18:19"
+                      }
+                    ],
+                    "id": 8057,
+                    "name": "ExpressionStatement",
+                    "src": "527:18:19"
+                  }
+                ],
+                "id": 8058,
+                "name": "Block",
+                "src": "517:35:19"
+              }
+            ],
+            "id": 8059,
+            "name": "FunctionDefinition",
+            "src": "470:82:19"
+          },
+          {
+            "attributes": {
+              "functionSelector": "29cb924d",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getCurrentTime",
+              "overrides": null,
+              "scope": 8069,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode.\n Otherwise, it will return the block timestamp.\n @return uint256 for the current Testable timestamp."
+                },
+                "id": 8060,
+                "name": "StructuredDocumentation",
+                "src": "558:237:19"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 8061,
+                "name": "ParameterList",
+                "src": "823:2:19"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 8068,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 8062,
+                        "name": "ElementaryTypeName",
+                        "src": "847:7:19"
+                      }
+                    ],
+                    "id": 8063,
+                    "name": "VariableDeclaration",
+                    "src": "847:7:19"
+                  }
+                ],
+                "id": 8064,
+                "name": "ParameterList",
+                "src": "846:9:19"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 8064
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 8040,
+                          "type": "uint256",
+                          "value": "currentTime"
+                        },
+                        "id": 8065,
+                        "name": "Identifier",
+                        "src": "873:11:19"
+                      }
+                    ],
+                    "id": 8066,
+                    "name": "Return",
+                    "src": "866:18:19"
+                  }
+                ],
+                "id": 8067,
+                "name": "Block",
+                "src": "856:35:19"
+              }
+            ],
+            "id": 8068,
+            "name": "FunctionDefinition",
+            "src": "800:91:19"
+          }
+        ],
+        "id": 8069,
+        "name": "ContractDefinition",
+        "src": "152:741:19"
+      }
+    ],
+    "id": 8070,
+    "name": "SourceUnit",
+    "src": "42:852:19"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.0",
+  "updatedAt": "2021-04-26T02:01:05.153Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "getCurrentTime()": {
+        "returns": {
+          "_0": "uint256 for the current Testable timestamp."
+        }
+      },
+      "setCurrentTime(uint256)": {
+        "details": "Will revert if not running in test mode.",
+        "params": {
+          "time": "timestamp to set `currentTime` to."
+        }
+      }
+    },
+    "title": "Universal store of current contract time for testing environments.",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "getCurrentTime()": {
+        "notice": "Gets the current time. Will return the last time set in `setCurrentTime` if running in test mode. Otherwise, it will return the block timestamp."
+      },
+      "setCurrentTime(uint256)": {
+        "notice": "Sets the current time."
+      }
+    },
+    "version": 1
+  }
+}

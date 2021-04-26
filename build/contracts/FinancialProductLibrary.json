@@ -1,0 +1,1497 @@
+{
+  "contractName": "FinancialProductLibrary",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "oraclePrice",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "requestTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "transformPrice",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "oraclePrice",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "collateralRequirement",
+          "type": "tuple"
+        }
+      ],
+      "name": "transformCollateralRequirement",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "priceIdentifier",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "requestTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "transformPriceIdentifier",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"oraclePrice\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"collateralRequirement\",\"type\":\"tuple\"}],\"name\":\"transformCollateralRequirement\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"oraclePrice\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"requestTime\",\"type\":\"uint256\"}],\"name\":\"transformPrice\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"priceIdentifier\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"requestTime\",\"type\":\"uint256\"}],\"name\":\"transformPriceIdentifier\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"transformCollateralRequirement((uint256),(uint256))\":{\"params\":{\"collateralRequirement\":\"input collateral requirement to be transformed.\",\"oraclePrice\":\"input price returned by DVM used to transform the collateral requirement.\"},\"returns\":{\"_0\":\"transformedCollateralRequirement input collateral requirement with the transformation function applied.\"}},\"transformPrice((uint256),uint256)\":{\"params\":{\"oraclePrice\":\"input price returned by the DVM to be transformed.\",\"requestTime\":\"timestamp the oraclePrice was requested at.\"},\"returns\":{\"_0\":\"transformedOraclePrice input oraclePrice with the transformation function applied.\"}},\"transformPriceIdentifier(bytes32,uint256)\":{\"params\":{\"priceIdentifier\":\"input price identifier defined for the financial contract.\",\"requestTime\":\"timestamp the identifier is to be used at. EG the time that a price request would be sent using this identifier.\"},\"returns\":{\"_0\":\"transformedPriceIdentifier input price identifier with the transformation function applied.\"}}},\"title\":\"Financial product library contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"transformCollateralRequirement((uint256),(uint256))\":{\"notice\":\"Transforms a given collateral requirement using the financial product libraries transformation logic.\"},\"transformPrice((uint256),uint256)\":{\"notice\":\"Transforms a given oracle price using the financial product libraries transformation logic.\"},\"transformPriceIdentifier(bytes32,uint256)\":{\"notice\":\"Transforms a given price identifier using the financial product libraries transformation logic.\"}},\"notice\":\"Provides price and collateral requirement transformation interfaces that can be overridden by custom Financial product library implementations.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"@uma/core/contracts/financial-templates/common/financial-product-libraries/FinancialProductLibrary.sol\":\"FinancialProductLibrary\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x04d34b3cd5677bea25f8dfceb6dec0eaa071d4d4b789a43f13fe0c415ba4c296\",\"urls\":[\"bzz-raw://e7e8b526a6839e5ba14f0d23a830387fec47f7043ce01d42c9f285b709a9d080\",\"dweb:/ipfs/QmXmhhFmX5gcAvVzNiDPAGA35iHMPNaYtQkACswRHBVTNw\"]},\"@openzeppelin/contracts/math/SignedSafeMath.sol\":{\"keccak256\":\"0xfadc24a31d75d6b3f955190cffe13bbe6e24a274c12b2b60e8c4004131487ce8\",\"urls\":[\"bzz-raw://0ec35367d49b2ea45f556a439f836e208d2460faeb6e2341e9130d163128b619\",\"dweb:/ipfs/QmTwKCBdkVAarY5hteSdwQ1J4GpogZoxCZHrbieMQVzuQJ\"]},\"@uma/core/contracts/common/implementation/FixedPoint.sol\":{\"keccak256\":\"0xab45bbd5979790b9f84b2f741fc5476d7196f5fd924704d38798540fa1b2e2f3\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://24affc9dbe1fa7c73ed6e1f46f8e1f9f46b83954d43d0bb2ef15ed80fe7e1fc2\",\"dweb:/ipfs/Qmbddhukgu2FdV1VKpACsuterX2kcq2X9jJs6usPqXLSqE\"]},\"@uma/core/contracts/financial-templates/common/financial-product-libraries/FinancialProductLibrary.sol\":{\"keccak256\":\"0xc2eed8415699d6bb8866ce3ed3e8e4249d2a9640270a382b6f8d3e962c26c9b7\",\"urls\":[\"bzz-raw://3a71c9b2b4faf9de892c337abe84b1b4d3c7b82f8291a2015e16b0f016f07f62\",\"dweb:/ipfs/QmRxVHSZ3yRRad9xpBJ95qyE71EcZNh7y4WmGnUafpyZQj\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\nimport \"../../../common/implementation/FixedPoint.sol\";\n\ninterface ExpiringContractInterface {\n    function expirationTimestamp() external view returns (uint256);\n}\n\n/**\n * @title Financial product library contract\n * @notice Provides price and collateral requirement transformation interfaces that can be overridden by custom\n * Financial product library implementations.\n */\nabstract contract FinancialProductLibrary {\n    using FixedPoint for FixedPoint.Unsigned;\n\n    /**\n     * @notice Transforms a given oracle price using the financial product libraries transformation logic.\n     * @param oraclePrice input price returned by the DVM to be transformed.\n     * @param requestTime timestamp the oraclePrice was requested at.\n     * @return transformedOraclePrice input oraclePrice with the transformation function applied.\n     */\n    function transformPrice(FixedPoint.Unsigned memory oraclePrice, uint256 requestTime)\n        public\n        view\n        virtual\n        returns (FixedPoint.Unsigned memory)\n    {\n        return oraclePrice;\n    }\n\n    /**\n     * @notice Transforms a given collateral requirement using the financial product libraries transformation logic.\n     * @param oraclePrice input price returned by DVM used to transform the collateral requirement.\n     * @param collateralRequirement input collateral requirement to be transformed.\n     * @return transformedCollateralRequirement input collateral requirement with the transformation function applied.\n     */\n    function transformCollateralRequirement(\n        FixedPoint.Unsigned memory oraclePrice,\n        FixedPoint.Unsigned memory collateralRequirement\n    ) public view virtual returns (FixedPoint.Unsigned memory) {\n        return collateralRequirement;\n    }\n\n    /**\n     * @notice Transforms a given price identifier using the financial product libraries transformation logic.\n     * @param priceIdentifier input price identifier defined for the financial contract.\n     * @param requestTime timestamp the identifier is to be used at. EG the time that a price request would be sent using this identifier.\n     * @return transformedPriceIdentifier input price identifier with the transformation function applied.\n     */\n    function transformPriceIdentifier(bytes32 priceIdentifier, uint256 requestTime)\n        public\n        view\n        virtual\n        returns (bytes32)\n    {\n        return priceIdentifier;\n    }\n}\n",
+  "sourcePath": "@uma/core/contracts/financial-templates/common/financial-product-libraries/FinancialProductLibrary.sol",
+  "ast": {
+    "absolutePath": "@uma/core/contracts/financial-templates/common/financial-product-libraries/FinancialProductLibrary.sol",
+    "exportedSymbols": {
+      "ExpiringContractInterface": [
+        9058
+      ],
+      "FinancialProductLibrary": [
+        9102
+      ]
+    },
+    "id": 9103,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9050,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:25"
+      },
+      {
+        "id": 9051,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:25"
+      },
+      {
+        "absolutePath": "@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "file": "../../../common/implementation/FixedPoint.sol",
+        "id": 9052,
+        "nodeType": "ImportDirective",
+        "scope": 9103,
+        "sourceUnit": 7295,
+        "src": "58:55:25",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 9058,
+        "linearizedBaseContracts": [
+          9058
+        ],
+        "name": "ExpiringContractInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "9f43ddd2",
+            "id": 9057,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "expirationTimestamp",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9053,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "185:2:25"
+            },
+            "returnParameters": {
+              "id": 9056,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9055,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9057,
+                  "src": "211:7:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9054,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "211:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "210:9:25"
+            },
+            "scope": 9058,
+            "src": "157:63:25",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 9103,
+        "src": "115:107:25"
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 9059,
+          "nodeType": "StructuredDocumentation",
+          "src": "224:210:25",
+          "text": " @title Financial product library contract\n @notice Provides price and collateral requirement transformation interfaces that can be overridden by custom\n Financial product library implementations."
+        },
+        "fullyImplemented": true,
+        "id": 9102,
+        "linearizedBaseContracts": [
+          9102
+        ],
+        "name": "FinancialProductLibrary",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 9062,
+            "libraryName": {
+              "contractScope": null,
+              "id": 9060,
+              "name": "FixedPoint",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7294,
+              "src": "489:10:25",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_FixedPoint_$7294",
+                "typeString": "library FixedPoint"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "483:41:25",
+            "typeName": {
+              "contractScope": null,
+              "id": 9061,
+              "name": "FixedPoint.Unsigned",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5808,
+              "src": "504:19:25",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Unsigned_$5808_storage_ptr",
+                "typeString": "struct FixedPoint.Unsigned"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 9074,
+              "nodeType": "Block",
+              "src": "1076:35:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9072,
+                    "name": "oraclePrice",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 9065,
+                    "src": "1093:11:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$5808_memory_ptr",
+                      "typeString": "struct FixedPoint.Unsigned memory"
+                    }
+                  },
+                  "functionReturnParameters": 9071,
+                  "id": 9073,
+                  "nodeType": "Return",
+                  "src": "1086:18:25"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 9063,
+              "nodeType": "StructuredDocumentation",
+              "src": "530:363:25",
+              "text": " @notice Transforms a given oracle price using the financial product libraries transformation logic.\n @param oraclePrice input price returned by the DVM to be transformed.\n @param requestTime timestamp the oraclePrice was requested at.\n @return transformedOraclePrice input oraclePrice with the transformation function applied."
+            },
+            "functionSelector": "0ff49b90",
+            "id": 9075,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transformPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9068,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9065,
+                  "mutability": "mutable",
+                  "name": "oraclePrice",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9075,
+                  "src": "922:38:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$5808_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9064,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5808,
+                    "src": "922:19:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$5808_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9067,
+                  "mutability": "mutable",
+                  "name": "requestTime",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9075,
+                  "src": "962:19:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9066,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "962:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "921:61:25"
+            },
+            "returnParameters": {
+              "id": 9071,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9070,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9075,
+                  "src": "1044:26:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$5808_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9069,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5808,
+                    "src": "1044:19:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$5808_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1043:28:25"
+            },
+            "scope": 9102,
+            "src": "898:213:25",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9087,
+              "nodeType": "Block",
+              "src": "1762:45:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9085,
+                    "name": "collateralRequirement",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 9080,
+                    "src": "1779:21:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$5808_memory_ptr",
+                      "typeString": "struct FixedPoint.Unsigned memory"
+                    }
+                  },
+                  "functionReturnParameters": 9084,
+                  "id": 9086,
+                  "nodeType": "Return",
+                  "src": "1772:28:25"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 9076,
+              "nodeType": "StructuredDocumentation",
+              "src": "1117:431:25",
+              "text": " @notice Transforms a given collateral requirement using the financial product libraries transformation logic.\n @param oraclePrice input price returned by DVM used to transform the collateral requirement.\n @param collateralRequirement input collateral requirement to be transformed.\n @return transformedCollateralRequirement input collateral requirement with the transformation function applied."
+            },
+            "functionSelector": "2a312637",
+            "id": 9088,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transformCollateralRequirement",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9081,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9078,
+                  "mutability": "mutable",
+                  "name": "oraclePrice",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9088,
+                  "src": "1602:38:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$5808_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9077,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5808,
+                    "src": "1602:19:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$5808_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9080,
+                  "mutability": "mutable",
+                  "name": "collateralRequirement",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9088,
+                  "src": "1650:48:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$5808_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9079,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5808,
+                    "src": "1650:19:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$5808_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1592:112:25"
+            },
+            "returnParameters": {
+              "id": 9084,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9083,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9088,
+                  "src": "1734:26:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$5808_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9082,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5808,
+                    "src": "1734:19:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$5808_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1733:28:25"
+            },
+            "scope": 9102,
+            "src": "1553:254:25",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9100,
+              "nodeType": "Block",
+              "src": "2429:39:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9098,
+                    "name": "priceIdentifier",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 9091,
+                    "src": "2446:15:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 9097,
+                  "id": 9099,
+                  "nodeType": "Return",
+                  "src": "2439:22:25"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 9089,
+              "nodeType": "StructuredDocumentation",
+              "src": "1813:457:25",
+              "text": " @notice Transforms a given price identifier using the financial product libraries transformation logic.\n @param priceIdentifier input price identifier defined for the financial contract.\n @param requestTime timestamp the identifier is to be used at. EG the time that a price request would be sent using this identifier.\n @return transformedPriceIdentifier input price identifier with the transformation function applied."
+            },
+            "functionSelector": "f19371b7",
+            "id": 9101,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transformPriceIdentifier",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9094,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9091,
+                  "mutability": "mutable",
+                  "name": "priceIdentifier",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9101,
+                  "src": "2309:23:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 9090,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2309:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9093,
+                  "mutability": "mutable",
+                  "name": "requestTime",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9101,
+                  "src": "2334:19:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9092,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2334:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2308:46:25"
+            },
+            "returnParameters": {
+              "id": 9097,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9096,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9101,
+                  "src": "2416:7:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 9095,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2416:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2415:9:25"
+            },
+            "scope": 9102,
+            "src": "2275:193:25",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          }
+        ],
+        "scope": 9103,
+        "src": "435:2035:25"
+      }
+    ],
+    "src": "0:2471:25"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "@uma/core/contracts/financial-templates/common/financial-product-libraries/FinancialProductLibrary.sol",
+      "exportedSymbols": {
+        "ExpiringContractInterface": [
+          9058
+        ],
+        "FinancialProductLibrary": [
+          9102
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 9050,
+        "name": "PragmaDirective",
+        "src": "0:23:25"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 9051,
+        "name": "PragmaDirective",
+        "src": "24:33:25"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 7295,
+          "absolutePath": "@uma/core/contracts/common/implementation/FixedPoint.sol",
+          "file": "../../../common/implementation/FixedPoint.sol",
+          "scope": 9103,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 9052,
+        "name": "ImportDirective",
+        "src": "58:55:25"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            9058
+          ],
+          "name": "ExpiringContractInterface",
+          "scope": 9103
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "9f43ddd2",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "expirationTimestamp",
+              "overrides": null,
+              "scope": 9058,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 9053,
+                "name": "ParameterList",
+                "src": "185:2:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 9057,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 9054,
+                        "name": "ElementaryTypeName",
+                        "src": "211:7:25"
+                      }
+                    ],
+                    "id": 9055,
+                    "name": "VariableDeclaration",
+                    "src": "211:7:25"
+                  }
+                ],
+                "id": 9056,
+                "name": "ParameterList",
+                "src": "210:9:25"
+              }
+            ],
+            "id": 9057,
+            "name": "FunctionDefinition",
+            "src": "157:63:25"
+          }
+        ],
+        "id": 9058,
+        "name": "ContractDefinition",
+        "src": "115:107:25"
+      },
+      {
+        "attributes": {
+          "abstract": true,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            9102
+          ],
+          "name": "FinancialProductLibrary",
+          "scope": 9103
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": " @title Financial product library contract\n @notice Provides price and collateral requirement transformation interfaces that can be overridden by custom\n Financial product library implementations."
+            },
+            "id": 9059,
+            "name": "StructuredDocumentation",
+            "src": "224:210:25"
+          },
+          {
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "FixedPoint",
+                  "referencedDeclaration": 7294,
+                  "type": "library FixedPoint"
+                },
+                "id": 9060,
+                "name": "UserDefinedTypeName",
+                "src": "489:10:25"
+              },
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "FixedPoint.Unsigned",
+                  "referencedDeclaration": 5808,
+                  "type": "struct FixedPoint.Unsigned"
+                },
+                "id": 9061,
+                "name": "UserDefinedTypeName",
+                "src": "504:19:25"
+              }
+            ],
+            "id": 9062,
+            "name": "UsingForDirective",
+            "src": "483:41:25"
+          },
+          {
+            "attributes": {
+              "functionSelector": "0ff49b90",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "transformPrice",
+              "overrides": null,
+              "scope": 9102,
+              "stateMutability": "view",
+              "virtual": true,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice Transforms a given oracle price using the financial product libraries transformation logic.\n @param oraclePrice input price returned by the DVM to be transformed.\n @param requestTime timestamp the oraclePrice was requested at.\n @return transformedOraclePrice input oraclePrice with the transformation function applied."
+                },
+                "id": 9063,
+                "name": "StructuredDocumentation",
+                "src": "530:363:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "oraclePrice",
+                      "overrides": null,
+                      "scope": 9075,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct FixedPoint.Unsigned",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "FixedPoint.Unsigned",
+                          "referencedDeclaration": 5808,
+                          "type": "struct FixedPoint.Unsigned"
+                        },
+                        "id": 9064,
+                        "name": "UserDefinedTypeName",
+                        "src": "922:19:25"
+                      }
+                    ],
+                    "id": 9065,
+                    "name": "VariableDeclaration",
+                    "src": "922:38:25"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "requestTime",
+                      "overrides": null,
+                      "scope": 9075,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 9066,
+                        "name": "ElementaryTypeName",
+                        "src": "962:7:25"
+                      }
+                    ],
+                    "id": 9067,
+                    "name": "VariableDeclaration",
+                    "src": "962:19:25"
+                  }
+                ],
+                "id": 9068,
+                "name": "ParameterList",
+                "src": "921:61:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 9075,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct FixedPoint.Unsigned",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "FixedPoint.Unsigned",
+                          "referencedDeclaration": 5808,
+                          "type": "struct FixedPoint.Unsigned"
+                        },
+                        "id": 9069,
+                        "name": "UserDefinedTypeName",
+                        "src": "1044:19:25"
+                      }
+                    ],
+                    "id": 9070,
+                    "name": "VariableDeclaration",
+                    "src": "1044:26:25"
+                  }
+                ],
+                "id": 9071,
+                "name": "ParameterList",
+                "src": "1043:28:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 9071
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 9065,
+                          "type": "struct FixedPoint.Unsigned memory",
+                          "value": "oraclePrice"
+                        },
+                        "id": 9072,
+                        "name": "Identifier",
+                        "src": "1093:11:25"
+                      }
+                    ],
+                    "id": 9073,
+                    "name": "Return",
+                    "src": "1086:18:25"
+                  }
+                ],
+                "id": 9074,
+                "name": "Block",
+                "src": "1076:35:25"
+              }
+            ],
+            "id": 9075,
+            "name": "FunctionDefinition",
+            "src": "898:213:25"
+          },
+          {
+            "attributes": {
+              "functionSelector": "2a312637",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "transformCollateralRequirement",
+              "overrides": null,
+              "scope": 9102,
+              "stateMutability": "view",
+              "virtual": true,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice Transforms a given collateral requirement using the financial product libraries transformation logic.\n @param oraclePrice input price returned by DVM used to transform the collateral requirement.\n @param collateralRequirement input collateral requirement to be transformed.\n @return transformedCollateralRequirement input collateral requirement with the transformation function applied."
+                },
+                "id": 9076,
+                "name": "StructuredDocumentation",
+                "src": "1117:431:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "oraclePrice",
+                      "overrides": null,
+                      "scope": 9088,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct FixedPoint.Unsigned",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "FixedPoint.Unsigned",
+                          "referencedDeclaration": 5808,
+                          "type": "struct FixedPoint.Unsigned"
+                        },
+                        "id": 9077,
+                        "name": "UserDefinedTypeName",
+                        "src": "1602:19:25"
+                      }
+                    ],
+                    "id": 9078,
+                    "name": "VariableDeclaration",
+                    "src": "1602:38:25"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "collateralRequirement",
+                      "overrides": null,
+                      "scope": 9088,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct FixedPoint.Unsigned",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "FixedPoint.Unsigned",
+                          "referencedDeclaration": 5808,
+                          "type": "struct FixedPoint.Unsigned"
+                        },
+                        "id": 9079,
+                        "name": "UserDefinedTypeName",
+                        "src": "1650:19:25"
+                      }
+                    ],
+                    "id": 9080,
+                    "name": "VariableDeclaration",
+                    "src": "1650:48:25"
+                  }
+                ],
+                "id": 9081,
+                "name": "ParameterList",
+                "src": "1592:112:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 9088,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct FixedPoint.Unsigned",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "FixedPoint.Unsigned",
+                          "referencedDeclaration": 5808,
+                          "type": "struct FixedPoint.Unsigned"
+                        },
+                        "id": 9082,
+                        "name": "UserDefinedTypeName",
+                        "src": "1734:19:25"
+                      }
+                    ],
+                    "id": 9083,
+                    "name": "VariableDeclaration",
+                    "src": "1734:26:25"
+                  }
+                ],
+                "id": 9084,
+                "name": "ParameterList",
+                "src": "1733:28:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 9084
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 9080,
+                          "type": "struct FixedPoint.Unsigned memory",
+                          "value": "collateralRequirement"
+                        },
+                        "id": 9085,
+                        "name": "Identifier",
+                        "src": "1779:21:25"
+                      }
+                    ],
+                    "id": 9086,
+                    "name": "Return",
+                    "src": "1772:28:25"
+                  }
+                ],
+                "id": 9087,
+                "name": "Block",
+                "src": "1762:45:25"
+              }
+            ],
+            "id": 9088,
+            "name": "FunctionDefinition",
+            "src": "1553:254:25"
+          },
+          {
+            "attributes": {
+              "functionSelector": "f19371b7",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "transformPriceIdentifier",
+              "overrides": null,
+              "scope": 9102,
+              "stateMutability": "view",
+              "virtual": true,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice Transforms a given price identifier using the financial product libraries transformation logic.\n @param priceIdentifier input price identifier defined for the financial contract.\n @param requestTime timestamp the identifier is to be used at. EG the time that a price request would be sent using this identifier.\n @return transformedPriceIdentifier input price identifier with the transformation function applied."
+                },
+                "id": 9089,
+                "name": "StructuredDocumentation",
+                "src": "1813:457:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "priceIdentifier",
+                      "overrides": null,
+                      "scope": 9101,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 9090,
+                        "name": "ElementaryTypeName",
+                        "src": "2309:7:25"
+                      }
+                    ],
+                    "id": 9091,
+                    "name": "VariableDeclaration",
+                    "src": "2309:23:25"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "requestTime",
+                      "overrides": null,
+                      "scope": 9101,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 9092,
+                        "name": "ElementaryTypeName",
+                        "src": "2334:7:25"
+                      }
+                    ],
+                    "id": 9093,
+                    "name": "VariableDeclaration",
+                    "src": "2334:19:25"
+                  }
+                ],
+                "id": 9094,
+                "name": "ParameterList",
+                "src": "2308:46:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 9101,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 9095,
+                        "name": "ElementaryTypeName",
+                        "src": "2416:7:25"
+                      }
+                    ],
+                    "id": 9096,
+                    "name": "VariableDeclaration",
+                    "src": "2416:7:25"
+                  }
+                ],
+                "id": 9097,
+                "name": "ParameterList",
+                "src": "2415:9:25"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 9097
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 9091,
+                          "type": "bytes32",
+                          "value": "priceIdentifier"
+                        },
+                        "id": 9098,
+                        "name": "Identifier",
+                        "src": "2446:15:25"
+                      }
+                    ],
+                    "id": 9099,
+                    "name": "Return",
+                    "src": "2439:22:25"
+                  }
+                ],
+                "id": 9100,
+                "name": "Block",
+                "src": "2429:39:25"
+              }
+            ],
+            "id": 9101,
+            "name": "FunctionDefinition",
+            "src": "2275:193:25"
+          }
+        ],
+        "id": 9102,
+        "name": "ContractDefinition",
+        "src": "435:2035:25"
+      }
+    ],
+    "id": 9103,
+    "name": "SourceUnit",
+    "src": "0:2471:25"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.0",
+  "updatedAt": "2021-04-26T02:01:05.168Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "transformCollateralRequirement((uint256),(uint256))": {
+        "params": {
+          "collateralRequirement": "input collateral requirement to be transformed.",
+          "oraclePrice": "input price returned by DVM used to transform the collateral requirement."
+        },
+        "returns": {
+          "_0": "transformedCollateralRequirement input collateral requirement with the transformation function applied."
+        }
+      },
+      "transformPrice((uint256),uint256)": {
+        "params": {
+          "oraclePrice": "input price returned by the DVM to be transformed.",
+          "requestTime": "timestamp the oraclePrice was requested at."
+        },
+        "returns": {
+          "_0": "transformedOraclePrice input oraclePrice with the transformation function applied."
+        }
+      },
+      "transformPriceIdentifier(bytes32,uint256)": {
+        "params": {
+          "priceIdentifier": "input price identifier defined for the financial contract.",
+          "requestTime": "timestamp the identifier is to be used at. EG the time that a price request would be sent using this identifier."
+        },
+        "returns": {
+          "_0": "transformedPriceIdentifier input price identifier with the transformation function applied."
+        }
+      }
+    },
+    "title": "Financial product library contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "transformCollateralRequirement((uint256),(uint256))": {
+        "notice": "Transforms a given collateral requirement using the financial product libraries transformation logic."
+      },
+      "transformPrice((uint256),uint256)": {
+        "notice": "Transforms a given oracle price using the financial product libraries transformation logic."
+      },
+      "transformPriceIdentifier(bytes32,uint256)": {
+        "notice": "Transforms a given price identifier using the financial product libraries transformation logic."
+      }
+    },
+    "notice": "Provides price and collateral requirement transformation interfaces that can be overridden by custom Financial product library implementations.",
+    "version": 1
+  }
+}

@@ -7,17 +7,17 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
-import "../../common/implementation/FixedPoint.sol";
-import "../../common/interfaces/ExpandedIERC20.sol";
-import "../../common/interfaces/IERC20Standard.sol";
+import "@uma/core/contracts/common/implementation/FixedPoint.sol";
+import "@uma/core/contracts/common/interfaces/ExpandedIERC20.sol";
+import "@uma/core/contracts/common/interfaces/IERC20Standard.sol";
 
-import "../../oracle/interfaces/OracleInterface.sol";
-import "../../oracle/interfaces/OptimisticOracleInterface.sol";
-import "../../oracle/interfaces/IdentifierWhitelistInterface.sol";
-import "../../oracle/implementation/Constants.sol";
+import "@uma/core/contracts/oracle/interfaces/OracleInterface.sol";
+import "@uma/core/contracts/oracle/interfaces/OptimisticOracleInterface.sol";
+import "@uma/core/contracts/oracle/interfaces/IdentifierWhitelistInterface.sol";
+import "@uma/core/contracts/oracle/implementation/Constants.sol";
 
-import "../common/FeePayer.sol";
-import "../common/financial-product-libraries/FinancialProductLibrary.sol";
+import "@uma/core/contracts/financial-templates/common/FeePayer.sol";
+import "@uma/core/contracts/financial-templates/common/financial-product-libraries/FinancialProductLibrary.sol";
 
 /**
  * @title Financial contract with priceless position management.
@@ -72,6 +72,8 @@ contract PricelessPositionManager is FeePayer {
     bytes32 public priceIdentifier;
     // Time that this contract expires. Should not change post-construction unless an emergency shutdown occurs.
     uint256 public expirationTimestamp;
+    // Time that the expiration DAO last changed
+    uint256 public updateTimestamp;
     // Time that has to elapse for a withdrawal request to be considered passed, if no liquidations occur.
     // !!Note: The lower the withdrawal liveness value, the more risk incurred by the contract.
     //       Extremely low liveness values increase the chance that opportunistic invalid withdrawal requests
@@ -118,7 +120,7 @@ contract PricelessPositionManager is FeePayer {
     event EmergencyShutdown(address indexed caller, uint256 originalExpirationTimestamp, uint256 shutdownTimestamp);
     event VariableExpiration(address indexed caller, uint256 originalExpirationTimestamp, uint256 shutdownTimestamp);
     event EmergencyUpdateDAOAddress(address indexed previousAddress, address indexed newAddress, uint256 updateTimestamp);
-    
+
     /****************************************
      *               MODIFIERS              *
      ****************************************/
@@ -189,7 +191,7 @@ contract PricelessPositionManager is FeePayer {
         tokenCurrency = ExpandedIERC20(_tokenAddress);
         minSponsorTokens = _minSponsorTokens;
         priceIdentifier = _priceIdentifier;
-        externalVariableExpirationDAOAddress = _externalVariableExpirationDAOAddress
+        externalVariableExpirationDAOAddress = _externalVariableExpirationDAOAddress;
 
         // Initialize the financialProductLibrary at the provided address.
         financialProductLibrary = FinancialProductLibrary(_financialProductLibraryAddress);
@@ -628,20 +630,20 @@ contract PricelessPositionManager is FeePayer {
      * @dev Only the governor or authorized DAO can call this function.
      * The new DAOAddress will be authorized to expire the contract, and the old address will be deauthorized.
      */
-    function emergencyUpdateDAOAddress(address DAOAddress) external {
+    function emergencyUpdateDAOAddress(address DAOAddress) public {
         require(msg.sender == _getFinancialContractsAdminAddress() || msg.sender == externalVariableExpirationDAOAddress, 'Caller must be the authorized DAO or the UMA governor');
         updateTimestamp = getCurrentTime();
-        EmergencyUpdateDAOAddress(externalVariableExpirationDAOAddress, DAOAddress, updateTimestamp)
+        EmergencyUpdateDAOAddress(externalVariableExpirationDAOAddress, DAOAddress, updateTimestamp);
         externalVariableExpirationDAOAddress = DAOAddress;
     }
 
     /**
-     * @notice Variable contract settlement under pre-defined circumstances.
+     * @notice Variable contract expiration under pre-defined circumstances.
      * @dev Only the governor or authorized DAO can call this function.
      * Upon variable shutdown, the contract settlement time is set to the shutdown time. This enables withdrawal
      * to occur via the standard `settleExpired` function.
      */
-    function variableExpiration(uint256 settlementPrice) external override onlyPreExpiration() onlyOpenState() nonReentrant() {
+    function variableExpiration() external onlyPreExpiration() onlyOpenState() nonReentrant() {
         require(msg.sender == _getFinancialContractsAdminAddress() || msg.sender == externalVariableExpirationDAOAddress, 'Caller must be the authorized DAO or the UMA governor');
 
         contractState = ContractState.ExpiredPriceReceived;
@@ -649,8 +651,7 @@ contract PricelessPositionManager is FeePayer {
         // Price received at this time stamp. `settleExpired` can now withdraw at this timestamp.
         uint256 oldExpirationTimestamp = expirationTimestamp;
         expirationTimestamp = getCurrentTime();
-        //instead of requesting the oracle price, we set the price as provided by the DAO vote.
-        expiryPrice = FixedPoint.Unsigned(settlementPrice);
+        _requestOraclePriceExpiration(expirationTimestamp);
 
         emit VariableExpiration(msg.sender, oldExpirationTimestamp, expirationTimestamp);
     }
