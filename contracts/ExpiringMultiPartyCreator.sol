@@ -43,6 +43,7 @@ contract ExpiringMultiPartyCreator is ContractCreator, Testable, Lockable {
         uint256 withdrawalLiveness;
         uint256 liquidationLiveness;
         address financialProductLibraryAddress;
+        address externalVariableExpirationDAOAddress;
     }
     // Address of TokenFactory used to create a new synthetic token.
     address public tokenFactoryAddress;
@@ -133,6 +134,7 @@ contract ExpiringMultiPartyCreator is ContractCreator, Testable, Lockable {
         constructorParams.withdrawalLiveness = params.withdrawalLiveness;
         constructorParams.liquidationLiveness = params.liquidationLiveness;
         constructorParams.financialProductLibraryAddress = params.financialProductLibraryAddress;
+        constructorParams.externalVariableExpirationDAOAddress = params.externalVariableExpirationDAOAddress;
     }
 
     // IERC20Standard.decimals() will revert if the collateral contract has not implemented the decimals() method,
