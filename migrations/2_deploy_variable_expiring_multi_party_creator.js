@@ -1,5 +1,5 @@
-const ExpiringMultiPartyCreator = artifacts.require("ExpiringMultiPartyCreator");
-const ExpiringMultiPartyLib = artifacts.require("ExpiringMultiPartyLib");
+const VariableExpiringMultiPartyCreator = artifacts.require("VariableExpiringMultiPartyCreator");
+const VariableExpiringMultiPartyLib = artifacts.require("VariableExpiringMultiPartyLib");
 const {
   RegistryRolesEnum,
   interfaceName,
@@ -13,31 +13,31 @@ module.exports = async function(deployer, network, accounts) {
   const controllableTiming = enableControllableTiming(network);
 
   // hardhat
-  if (ExpiringMultiPartyLib.setAsDeployed) {
-    const { contract: empLib } = await deploy(deployer, network, ExpiringMultiPartyLib);
+  if (VariableExpiringMultiPartyLib.setAsDeployed) {
+    const { contract: empLib } = await deploy(deployer, network, VariableExpiringMultiPartyLib);
 
     // Due to how truffle-plugin works, it statefully links it
     // and throws an error if its already linked. So we'll just ignore it...
     try {
-      await ExpiringMultiPartyCreator.link(empLib);
+      await VariableExpiringMultiPartyCreator.link(empLib);
     } catch (e) {
       // Allow this to fail in the hardhat case.
     }
   } else {
     // Truffle
-    await deploy(deployer, network, ExpiringMultiPartyLib);
-    await deployer.link(ExpiringMultiPartyLib, ExpiringMultiPartyCreator);
+    await deploy(deployer, network, VariableExpiringMultiPartyLib);
+    await deployer.link(VariableExpiringMultiPartyLib, VariableExpiringMultiPartyCreator);
   }
 
-  const { contract: expiringMultiPartyCreator } = await deploy(
+  const { contract: variableExpiringMultiPartyCreator } = await deploy(
     deployer,
     network,
-    ExpiringMultiPartyCreator,
+    VariableExpiringMultiPartyCreator,
     "0x0000000000000000000000000000000000000000",
     "0x0000000000000000000000000000000000000000",
     "0x0000000000000000000000000000000000000000",
     { from: keys.deployer }
   );
 
-  await registry.addMember(RegistryRolesEnum.CONTRACT_CREATOR, expiringMultiPartyCreator.address);
+  await registry.addMember(RegistryRolesEnum.CONTRACT_CREATOR, variableExpiringMultiPartyCreator.address);
 };
