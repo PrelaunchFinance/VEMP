@@ -79,7 +79,7 @@ contract VariableExpiringMultiPartyCreator is ContractCreator, Testable, Lockabl
         // applied to the newly created synthetic token.
         uint8 syntheticDecimals = _getSyntheticDecimals(params.collateralAddress);
         ExpandedIERC20 tokenCurrency = tf.createToken(params.syntheticName, params.syntheticSymbol, syntheticDecimals);
-        address derivative = ExpiringMultiPartyLib.deploy(_convertParams(params, tokenCurrency));
+        address derivative = VariableExpiringMultiPartyLib.deploy(_convertParams(params, tokenCurrency));
 
         // Give permissions to new derivative contract and then hand over ownership.
         tokenCurrency.addMinter(derivative);
@@ -97,11 +97,11 @@ contract VariableExpiringMultiPartyCreator is ContractCreator, Testable, Lockabl
      *          PRIVATE FUNCTIONS           *
      ****************************************/
 
-    // Converts createExpiringMultiParty params to ExpiringMultiParty constructor params.
+    // Converts createExpiringMultiParty params to VariableExpiringMultiParty constructor params.
     function _convertParams(Params memory params, ExpandedIERC20 newTokenCurrency)
         private
         view
-        returns (ExpiringMultiParty.ConstructorParams memory constructorParams)
+        returns (VariableExpiringMultiParty.ConstructorParams memory constructorParams)
     {
         // Known from creator deployment.
         constructorParams.finderAddress = finderAddress;
