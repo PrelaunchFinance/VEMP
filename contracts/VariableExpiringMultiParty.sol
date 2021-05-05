@@ -8,9 +8,9 @@ import "./Liquidatable.sol";
  * @title Expiring Multi Party.
  * @notice Convenient wrapper for Liquidatable.
  */
-contract ExpiringMultiParty is Liquidatable {
+contract VariableExpiringMultiParty is Liquidatable {
     /**
-     * @notice Constructs the ExpiringMultiParty contract.
+     * @notice Constructs the VariableExpiringMultiParty contract.
      * @param params struct to define input parameters for construction of Liquidatable. Some params
      * are fed directly into the PricelessPositionManager's constructor within the inheritance tree.
      */

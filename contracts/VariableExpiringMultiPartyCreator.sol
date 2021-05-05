@@ -10,10 +10,10 @@ import "@uma/core/contracts/common/implementation/AddressWhitelist.sol";
 import "@uma/core/contracts/common/implementation/Lockable.sol";
 import "@uma/core/contracts/financial-templates/common/TokenFactory.sol";
 import "@uma/core/contracts/financial-templates/common/SyntheticToken.sol";
-import "./ExpiringMultiPartyLib.sol";
+import "./VariableExpiringMultiPartyLib.sol";
 
 /**
- * @title Expiring Multi Party Contract creator.
+ * @title Variable Expiring Multi Party Contract creator.
  * @notice Factory contract to create and register new instances of expiring multiparty contracts.
  * Responsible for constraining the parameters used to construct a new EMP. This creator contains a number of constraints
  * that are applied to newly created expiring multi party contract. These constraints can evolve over time and are
@@ -22,7 +22,7 @@ import "./ExpiringMultiPartyLib.sol";
  * to be the only way to create valid financial contracts that are registered with the DVM (via _registerContract),
   we can enforce deployment configurations here.
  */
-contract ExpiringMultiPartyCreator is ContractCreator, Testable, Lockable {
+contract VariableExpiringMultiPartyCreator is ContractCreator, Testable, Lockable {
     using FixedPoint for FixedPoint.Unsigned;
 
     /****************************************

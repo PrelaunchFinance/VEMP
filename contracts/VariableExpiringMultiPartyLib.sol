@@ -2,13 +2,13 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
-import "./ExpiringMultiParty.sol";
+import "./VariableExpiringMultiParty.sol";
 
 /**
- * @title Provides convenient Expiring Multi Party contract utilities.
- * @dev Using this library to deploy EMP's allows calling contracts to avoid importing the full EMP bytecode.
+ * @title Provides convenient Variable Expiring Multi Party contract utilities.
+ * @dev Using this library to deploy VEMP's allows calling contracts to avoid importing the full VEMP bytecode.
  */
-library ExpiringMultiPartyLib {
+library VariableExpiringMultiPartyLib {
     /**
      * @notice Returns address of new EMP deployed with given `params` configuration.
      * @dev Caller will need to register new EMP with the Registry to begin requesting prices. Caller is also
