@@ -647,7 +647,7 @@ contract PricelessPositionManager is FeePayer {
         require(msg.sender == _getFinancialContractsAdminAddress() || msg.sender == externalVariableExpirationDAOAddress, 'Caller must be the authorized DAO or the UMA governor');
 
         contractState = ContractState.ExpiredPriceRequested;
-        // Expiratory time now becomes the current time (variable shutdown time).
+        // Expiration time now becomes the current time (variable shutdown time).
         // Price received at this time stamp. `settleExpired` can now withdraw at this timestamp.
         uint256 oldExpirationTimestamp = expirationTimestamp;
         expirationTimestamp = getCurrentTime();
