@@ -1,4 +1,4 @@
-diff --git a/./emp/PricelessPositionManager.sol b/./variable-expiring-multiparty/contracts/PricelessPositionManager.sol
+```diff --git a/./emp/PricelessPositionManager.sol b/./variable-expiring-multiparty/contracts/PricelessPositionManager.sol
 index 2e3b0f4..5b17ee8 100644
 --- a/./emp/PricelessPositionManager.sol
 +++ b/./variable-expiring-multiparty/contracts/PricelessPositionManager.sol
@@ -128,3 +128,4 @@ index 2e3b0f4..5b17ee8 100644
      /**
       * @notice Premature contract settlement under emergency circumstances.
       * @dev Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`.
+```
