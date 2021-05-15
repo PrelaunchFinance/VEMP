@@ -1,4 +1,4 @@
-diff --git a/./variable-expiring-multiparty/contracts/.DS_Store b/./variable-expiring-multiparty/contracts/.DS_Store
+```diff --git a/./variable-expiring-multiparty/contracts/.DS_Store b/./variable-expiring-multiparty/contracts/.DS_Store
 deleted file mode 100644
 index 43c03a7..0000000
 Binary files a/./variable-expiring-multiparty/contracts/.DS_Store and /dev/null differ
@@ -7,7 +7,7 @@ similarity index 80%
 rename from ./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
 rename to ./emp/ExpiringMultiParty.sol
 index df285b8..51d472b 100644
-```diff
+
 --- a/./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
 +++ b/./emp/ExpiringMultiParty.sol
 @@ -1,6 +1,5 @@
@@ -28,7 +28,7 @@ index df285b8..51d472b 100644
 +     * @notice Constructs the ExpiringMultiParty contract.
       * @param params struct to define input parameters for construction of Liquidatable. Some params
       * are fed directly into the PricelessPositionManager's constructor within the inheritance tree.
-      */```
+      */
 diff --git a/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyCreator.sol b/./emp/ExpiringMultiPartyCreator.sol
 similarity index 84%
 rename from ./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyCreator.sol
@@ -365,4 +365,4 @@ index b120e22..0000000
 -        return address(derivative);
 -    }
 -}
-
+```
