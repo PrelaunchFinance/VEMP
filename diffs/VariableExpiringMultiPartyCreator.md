@@ -1,4 +1,4 @@
-diff --git a/./emp/ExpiringMultiPartyCreator.sol b/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyCreator.sol
+```diff --git a/./emp/ExpiringMultiPartyCreator.sol b/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyCreator.sol
 index 4ecb267..8d96ab6 100644
 --- a/./emp/ExpiringMultiPartyCreator.sol
 +++ b/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyCreator.sol
@@ -81,3 +81,4 @@ index 4ecb267..8d96ab6 100644
      }
  
      // IERC20Standard.decimals() will revert if the collateral contract has not implemented the decimals() method,
+```
