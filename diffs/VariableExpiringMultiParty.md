@@ -1,4 +1,4 @@
-diff --git a/./emp/ExpiringMultiParty.sol b/./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
+```diff --git a/./emp/ExpiringMultiParty.sol b/./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
 index 51d472b..df285b8 100644
 --- a/./emp/ExpiringMultiParty.sol
 +++ b/./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
@@ -21,3 +21,4 @@ index 51d472b..df285b8 100644
       * @param params struct to define input parameters for construction of Liquidatable. Some params
       * are fed directly into the PricelessPositionManager's constructor within the inheritance tree.
       */
+```
