@@ -1,4 +1,4 @@
-diff --git a/./variable-expiring-multiparty/contracts/.DS_Store b/./variable-expiring-multiparty/contracts/.DS_Store
+```diff --git a/./variable-expiring-multiparty/contracts/.DS_Store b/./variable-expiring-multiparty/contracts/.DS_Store
 deleted file mode 100644
 index 43c03a7..0000000
 Binary files a/./variable-expiring-multiparty/contracts/.DS_Store and /dev/null differ
@@ -364,3 +364,4 @@ index b120e22..0000000
 -        return address(derivative);
 -    }
 -}
+```
