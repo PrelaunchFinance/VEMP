@@ -7,27 +7,28 @@ similarity index 80%
 rename from ./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
 rename to ./emp/ExpiringMultiParty.sol
 index df285b8..51d472b 100644
-       --- a/./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
-       +++ b/./emp/ExpiringMultiParty.sol
-       @@ -1,6 +1,5 @@
-        // SPDX-License-Identifier: AGPL-3.0-only
-        pragma solidity ^0.8.0;
-       -pragma abicoder v2;
+```diff
+--- a/./variable-expiring-multiparty/contracts/VariableExpiringMultiParty.sol
++++ b/./emp/ExpiringMultiParty.sol
+@@ -1,6 +1,5 @@
+ // SPDX-License-Identifier: AGPL-3.0-only
+ pragma solidity ^0.8.0;
+-pragma abicoder v2;
 
-        import "./Liquidatable.sol";
+ import "./Liquidatable.sol";
 
-       @@ -8,9 +7,9 @@ import "./Liquidatable.sol";
-         * @title Expiring Multi Party.
-         * @notice Convenient wrapper for Liquidatable.
-         */
-       -contract VariableExpiringMultiParty is Liquidatable {
-       +contract ExpiringMultiParty is Liquidatable {
-            /**
-       -     * @notice Constructs the VariableExpiringMultiParty contract.
-       +     * @notice Constructs the ExpiringMultiParty contract.
-             * @param params struct to define input parameters for construction of Liquidatable. Some params
-             * are fed directly into the PricelessPositionManager's constructor within the inheritance tree.
-             */
+@@ -8,9 +7,9 @@ import "./Liquidatable.sol";
+  * @title Expiring Multi Party.
+  * @notice Convenient wrapper for Liquidatable.
+  */
+-contract VariableExpiringMultiParty is Liquidatable {
++contract ExpiringMultiParty is Liquidatable {
+     /**
+-     * @notice Constructs the VariableExpiringMultiParty contract.
++     * @notice Constructs the ExpiringMultiParty contract.
+      * @param params struct to define input parameters for construction of Liquidatable. Some params
+      * are fed directly into the PricelessPositionManager's constructor within the inheritance tree.
+      */```
 diff --git a/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyCreator.sol b/./emp/ExpiringMultiPartyCreator.sol
 similarity index 84%
 rename from ./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyCreator.sol
