@@ -1,4 +1,4 @@
-diff --git a/./emp/Liquidatable.sol b/./variable-expiring-multiparty/contracts/Liquidatable.sol
+```diff --git a/./emp/Liquidatable.sol b/./variable-expiring-multiparty/contracts/Liquidatable.sol
 index 96d95f1..1b51883 100644
 --- a/./emp/Liquidatable.sol
 +++ b/./variable-expiring-multiparty/contracts/Liquidatable.sol
@@ -36,3 +36,4 @@ index 96d95f1..1b51883 100644
          )
          nonReentrant()
      {
+```
