@@ -1,4 +1,4 @@
-diff --git a/./emp/ExpiringMultiPartyLib.sol b/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyLib.sol
+```diff --git a/./emp/ExpiringMultiPartyLib.sol b/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyLib.sol
 index 9ad551f..b120e22 100644
 --- a/./emp/ExpiringMultiPartyLib.sol
 +++ b/./variable-expiring-multiparty/contracts/VariableExpiringMultiPartyLib.sol
@@ -36,3 +36,4 @@ index 9ad551f..b120e22 100644
          return address(derivative);
      }
  }
+ ```
