@@ -17,8 +17,9 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-
+require('dotenv').config();
 const HDWalletProvider = require('@truffle/hdwallet-provider');
+const PrivateKeyProvider = require("truffle-privatekey-provider");
 // const infuraKey = "fj4jll3k.....";
 //
 // const fs = require('fs');
@@ -50,8 +51,10 @@ module.exports = {
       gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
     },
     live:{
-      provider: () => new HDWalletProvider(process.env.MNEMONIC, liveNetwork),
-      network_id: liveNetworkId,
+      provider: () => new PrivateKeyProvider(process.env.PRIVATE_KEY, process.env.NETWORK),
+      network_id: 1,
+      gas: 6700000,           // Gas sent with each transaction (default: ~6700000)
+      gasPrice: 55000000000,  // 20 gwei (in wei) (default: 100 gwei)
     }
     // Another network with more advanced options...
     // advanced: {
@@ -84,7 +87,9 @@ module.exports = {
   mocha: {
     // timeout: 100000
   },
-
+  api_keys: {
+    etherscan: process.env.ETHERSCAN
+  },
   // Configure your compilers
   compilers: {
     solc: {
@@ -98,7 +103,9 @@ module.exports = {
       }
     }
   },
-
+  plugins: [
+    'truffle-plugin-verify'
+  ],
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
   //
   // Note: if you migrated your contracts prior to enabling this field in your Truffle project and want
