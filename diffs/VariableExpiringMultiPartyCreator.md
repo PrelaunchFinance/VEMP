@@ -80,5 +80,4 @@ index 4ecb267..8d96ab6 100644
 +        constructorParams.externalVariableExpirationDAOAddress = params.externalVariableExpirationDAOAddress;
      }
  
-     // IERC20Standard.decimals() will revert if the collateral contract has not implemented the decimals() method,
-```
+     // IERC20Standard.decimals() will revert if the collateral contract has not implemented the decimals() method,```

@@ -1,5 +1,5 @@
 ```diff --git a/./emp/PricelessPositionManager.sol b/./variable-expiring-multiparty/contracts/PricelessPositionManager.sol
-index 2e3b0f4..5b17ee8 100644
+index 2e3b0f4..d2fbd02 100644
 --- a/./emp/PricelessPositionManager.sol
 +++ b/./variable-expiring-multiparty/contracts/PricelessPositionManager.sol
 @@ -1,22 +1,23 @@
@@ -59,7 +59,7 @@ index 2e3b0f4..5b17ee8 100644
      );
      event EmergencyShutdown(address indexed caller, uint256 originalExpirationTimestamp, uint256 shutdownTimestamp);
 +    event VariableExpiration(address indexed caller, uint256 originalExpirationTimestamp, uint256 shutdownTimestamp);
-+    event EmergencyUpdateDAOAddress(address indexed previousAddress, address indexed newAddress, uint256 updateTimestamp);
++    event UpdateDAOAddress(address indexed previousAddress, address indexed newAddress, uint256 updateTimestamp);
  
      /****************************************
       *               MODIFIERS              *
@@ -95,14 +95,14 @@ index 2e3b0f4..5b17ee8 100644
      }
  
 +    /**
-+     * @notice Update DAO address under emergency circumstances
++     * @notice Update DAO address
 +     * @dev Only the governor or authorized DAO can call this function.
 +     * The new DAOAddress will be authorized to expire the contract, and the old address will be deauthorized.
 +     */
-+    function emergencyUpdateDAOAddress(address DAOAddress) public {
++    function updateDAOAddress(address DAOAddress) public {
 +        require(msg.sender == _getFinancialContractsAdminAddress() || msg.sender == externalVariableExpirationDAOAddress, 'Caller must be the authorized DAO or the UMA governor');
 +        updateTimestamp = getCurrentTime();
-+        EmergencyUpdateDAOAddress(externalVariableExpirationDAOAddress, DAOAddress, updateTimestamp);
++        emit UpdateDAOAddress(externalVariableExpirationDAOAddress, DAOAddress, updateTimestamp);
 +        externalVariableExpirationDAOAddress = DAOAddress;
 +    }
 +
@@ -127,5 +127,4 @@ index 2e3b0f4..5b17ee8 100644
 +
      /**
       * @notice Premature contract settlement under emergency circumstances.
-      * @dev Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`.
-```
+      * @dev Only the governor can call this function as they are permissioned within the `FinancialContractAdmin`.```

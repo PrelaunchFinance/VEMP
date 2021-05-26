@@ -1,1 +1,1 @@
-# Diffs of Variable Expiring Multiparty library (UMIP 248) versus existing EMP template as of May 15, 2021
+# Diffs of Variable Expiring Multiparty library (UMIP 248) versus existing EMP template as of May 25, 2021
