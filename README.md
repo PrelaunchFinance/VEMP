@@ -1,6 +1,6 @@
 # variable-expiring-multiparty
 
-Please see UMIP 248 for more information: https://github.com/UMAprotocol/UMIPs/pull/248
+Please see UMIP 99 for more information: https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-99.md
 
 Main net contracts:
 
